@@ -4,6 +4,8 @@ import { firestore } from '../firebase';
 
 import Posts from './Posts';
 
+import collectIdsAndDocs from '../utilities';
+
 class Application extends Component {
   state = {
     posts: [
@@ -38,18 +40,35 @@ class Application extends Component {
     ],
   };
 
-  componentDidMount = () => {
-    const posts = firestore.collection('posts').get().then(snapshot => {
-      console.log({ snapshot });
-    });
+  componentDidMount = async () => {
+    const snapshot = await firestore.collection('posts').get()
 
-    console.log({posts});
+    const posts = snapshot.docs.map(collectIdsAndDocs);
+
+    this.setState({ posts });
+    /*snapshot.forEach(doc => {
+      const id = doc.id;
+      const data = doc.data();
+      
+      console.log({ id, data });
+    })*/
+
+
+    /*console.log({snapshot});*/
      
   }
 
-  handleCreate = post => {
+  handleCreate = async post => {
     const { posts } = this.state;
-    this.setState({ posts: [post, ...posts] });
+
+    const docRef = await firestore.collection('posts').add(post);
+
+    const doc = await docRef.get();
+
+    const newPost = collectIdsAndDocs(doc);
+
+
+    this.setState({ posts: [newPost, ...posts] });
   };
 
   render() {

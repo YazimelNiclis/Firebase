@@ -31,5 +31,18 @@
   ],
   "devDependencies": {
     "node-sass": "^4.11.0"
-  }
+  },
+  "description": "- Take a tour of the application.\r - Set up a new project in the Firebase console.\r - Take a tour of the Firebase console.\r - Go to the Database section and create a new Cloud Firestore.\r   - Put it into test mode.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YazimelNiclis/Firebase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YazimelNiclis/Firebase/issues"
+  },
+  "homepage": "https://github.com/YazimelNiclis/Firebase#readme"
 }
