@@ -30,7 +30,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "node-sass": "^7.0.0"
   },
   "description": "- Take a tour of the application.\r - Set up a new project in the Firebase console.\r - Take a tour of the Firebase console.\r - Go to the Database section and create a new Cloud Firestore.\r   - Put it into test mode.",
   "main": "index.js",
